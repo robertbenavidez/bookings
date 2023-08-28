@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/robertbenavidez/bookings/pkg/config"
+	"github.com/robertbenavidez/bookings/pkg/models"
 	"github.com/robertbenavidez/bookings/pkg/render"
 )
 
@@ -29,10 +30,17 @@ func NewHandlers(r *Repository) {
 
 // Home is the home page handler
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "home.page.tmpl")
+	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateDate{})
 }
 
 // About is the about page handler
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "about.page.tmpl")
+	// test data to be sent to the template
+	stringMap := make(map[string]string)
+	stringMap["test"] = "Hello, template."
+
+	// send the data to the template
+	render.RenderTemplate(w, "about.page.tmpl", &models.TemplateDate{
+		StringMap: stringMap,
+	})
 }
