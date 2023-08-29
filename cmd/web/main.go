@@ -34,7 +34,7 @@ func main() {
 			Handler: routes(&app),
 		}
 
+	fmt.Println("Starting Application on port", portNumber)
 	err = srv.ListenAndServe()
 	log.Fatal(err)
-	fmt.Println("Starting Application on port", portNumber)
 }
