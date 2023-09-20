@@ -83,27 +83,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
     <script src="https://unpkg.com/notie"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       const elem = document.getElementById('reservation-dates');
       const rangepicker = new DateRangePicker(elem, {
             format: "mm-dd-yyyy"
       }); 
-
-      function alertSuccess(msg) {
+      function notify(msg, msgType) {
         notie.alert({
-          type: 'success', // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
-          text: msg,
-        })
-      }
-      function alertError(msg) {
-        notie.alert({
-          type: 'error', // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
-          text: msg,
-        })
-      }
-      function alertWarning(msg) {
-        notie.alert({
-          type: 'error', // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+          type: msgType,
           text: msg,
         })
       }
