@@ -44,3 +44,18 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 		StringMap: stringMap,
 	})
 }
+
+// General renders general-suite page
+func (m *Repository) General(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "general-suite.page.tmpl", &models.TemplateDate{})
+}
+
+// Executive renders executive-suite page
+func (m *Repository) Executive(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "executive-suite.page.tmpl", &models.TemplateDate{})
+}
+
+// Availabilty renders the search availabilty page
+func (m *Repository) Availability(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "executive-suite.page.tmpl", &models.TemplateDate{})
+}
